@@ -1,0 +1,22 @@
+.imgRow {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  height: 300px;
+  margin: auto;
+  .imgTextCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 40%;
+    height: 100%;
+    .infoRow {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+.carousel {
+  height: 100%;
+}
