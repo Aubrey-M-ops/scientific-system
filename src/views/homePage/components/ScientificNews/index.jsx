@@ -1,19 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Card,
-  Container,
-  Button,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardImg,
-  CardTitle,
-} from "reactstrap";
+import { Container, Button } from "reactstrap";
+import MyCard from "../../../../components/MyCard";
 import styles from "../../styles.module.scss";
+
+const previewCards = new Array(6).fill({
+  img: "http://silk-web.dms.heyfuture.com.cn//images/1/2023/02/07/c6b99f66-4137-4d59-b908-35d1f162382d_1.jpg",
+  title: "《第三极环境科学评估报告》全球发布",
+  footer: "2023-01-01",
+});
+
 const ScientificNews = () => {
   return (
-    <div className="section section-signup">
+    <div className="section">
       <Container style={{ width: "70%" }}>
         <div className="squares square-1" />
         <div className="squares square-2" />
@@ -48,7 +47,14 @@ const ScientificNews = () => {
             </div>
           </div>
           <div className={styles.rightCards}>
-            卡片抽成组建 这里放和上面一样的卡片
+            {console.log(123123, previewCards)}
+            {previewCards?.map((card) => (
+              <MyCard
+                imgSrc={card.img}
+                cardTitle={card.title}
+                cardFooter={card.footer}
+              />
+            ))}
             {/* <Card className="card-register">
               <CardHeader>
                 <CardImg

@@ -32,7 +32,12 @@
   justify-content: space-between;
   .leftInfo {
     width: 50%;
+    margin-right: 40px;
   }
   .rightCards {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    grid-column-gap: 20px;
   }
 }

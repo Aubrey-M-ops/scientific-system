@@ -9,7 +9,7 @@ import {
   CardImg,
   CardTitle,
 } from "reactstrap";
-const MyCard = ({imgSrc, cardTitle, cardFooter, handleClick}:{imgSrc:string, cardTitle: string, cardFooter:string, handleClick?:()=>void}) => {
+const MyCard = ({ imgSrc, cardTitle, cardFooter, handleClick }) => {
   return (
     <Card style={{ maxWidth: 300 }} onCliclk={handleClick}>
       <CardHeader>
