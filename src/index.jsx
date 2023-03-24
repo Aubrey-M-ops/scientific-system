@@ -10,8 +10,8 @@ import "./assets/demo/demo.css";
 // import LandingPage from "views/examples/LandingPage.js";
 // import RegisterPage from "views/examples/RegisterPage.js";
 // import ProfilePage from "views/examples/ProfilePage.js";
-import HomePage from "@/views/homePage";
-import TopNavbar from "@/components/Navbars/Navbar";
+import HomePage from "./views/homePage";
+import TopNavbar from "./components/Navbars/Navbar";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(

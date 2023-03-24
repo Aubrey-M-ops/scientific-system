@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardBody,
 } from "reactstrap";
-import MyCard from "@/components/MyCard";
+import MyCard from "../../../../components/MyCard";
 
 import styles from "../../styles.module.scss";
 
@@ -84,7 +84,7 @@ const NewsDisplay = () => {
               className="blur-hidden h5 text-primary"
               style={{ fontSize: "20px" }}
             >
-              点击查看详情{'>>>'}
+              点击查看详情{">>>"}
             </span>
           </a>
         </div>

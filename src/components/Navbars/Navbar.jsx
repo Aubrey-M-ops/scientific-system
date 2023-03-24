@@ -1,4 +1,4 @@
-import { NAV_MENU } from "@/constant/nav";
+import { NAV_MENU } from "../../constant/nav";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 // reactstrap components

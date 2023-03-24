@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import PageHeader from "@/components/PageHeader/PageHeader";
+import PageHeader from "../../components/PageHeader/PageHeader";
 import styles from "./styles.module.scss";
 import MyCarousel from "../../components/MyCarousel";
 import NewsDisplay from "./components/NewsDisplay";
 import ScientificNews from "./components/ScientificNews";
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   useEffect(() => {
     document.body.classList.toggle("index-page");
     // Specify how to clean up after this effect:
