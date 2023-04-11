@@ -11,6 +11,7 @@ import "./assets/demo/demo.css";
 // import RegisterPage from "views/examples/RegisterPage.js";
 // import ProfilePage from "views/examples/ProfilePage.js";
 import HomePage from "./views/homePage";
+import ScienceMoment from "./views/scienceMoment";
 import TopNavbar from "./components/Navbars/Navbar";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -19,8 +20,9 @@ root.render(
     <TopNavbar />
     <Switch>
       {/* <Route path="/components" render={(props) => <Index {...props} />} /> */}
-      <Route path="/" render={(props) => <HomePage {...props} />} />
-       {/* <Route
+      <Route path="/home" render={(props) => <HomePage {...props} />} />
+      <Route path="/dynamic" render={(props) => <ScienceMoment {...props} />} />
+      {/* <Route
         path="/landing-page"
         render={(props) => <LandingPage {...props} />}
       />
@@ -32,7 +34,7 @@ root.render(
         path="/profile-page"
         render={(props) => <ProfilePage {...props} />}
       /> */}
-      <Redirect from="/" to="/components" />
+      <Redirect from="/" to="/home" />
     </Switch>
   </BrowserRouter>
 );

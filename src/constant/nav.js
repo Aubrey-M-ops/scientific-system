@@ -1,14 +1,14 @@
 export const NAV_MENU = [
-  {
-    name: "丝路科考动态",
-    url: "/dynamic",
-    children: [
-      { name: "综合新闻", url: "" },
-      { name: "通知公告", url: "" },
-      { name: "丝路动态", url: "" },
-      { name: "科研进展", url: "" },
-    ],
-  },
+  // {
+  //   name: "丝路科考动态",
+  //   url: "/dynamic",
+  //   children: [
+  //     { name: "综合新闻", url: "/allNews" },
+  //     { name: "通知公告", url: "/notice" },
+  //     { name: "丝路动态", url: "/moments" },
+  //     { name: "科研进展", url: "/progress" },
+  //   ],
+  // },
   {
     name: "丝路碳储量",
     url: "",

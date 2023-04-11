@@ -1,5 +1,5 @@
 .section {
-  margin: 30px 0 180px 0;
+  margin: 30px 0 120px 0;
   h1 {
     margin-bottom: 30px;
     text-align: center;
@@ -40,4 +40,9 @@
     grid-template-columns: repeat(3, 33.3%);
     grid-column-gap: 20px;
   }
+}
+.recordContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-column-gap: 20px;
 }

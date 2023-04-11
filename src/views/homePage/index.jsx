@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import MyCarousel from "../../components/MyCarousel";
 import NewsDisplay from "./components/NewsDisplay";
 import ScientificNews from "./components/ScientificNews";
+import ScientificRecord from "./components/ScientificRecord";
 
 const HomePage = () => {
   useEffect(() => {
@@ -32,6 +33,7 @@ const HomePage = () => {
         </div>
         <div className={styles.section}>
           <h1>科考实录</h1>
+          <ScientificRecord />
         </div>
       </div>
     </div>

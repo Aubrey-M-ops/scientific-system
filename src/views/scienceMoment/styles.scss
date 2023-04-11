@@ -1,0 +1,128 @@
+.dynamic-container {
+  margin: 120px;
+}
+.top-news {
+  width: 100%;
+  height: 420px;
+  .container-wrap {
+    background: #1f2251;
+    box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    // margin: 0 120px;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .left {
+    float: left;
+    width: 58%;
+    height: 100%;
+    overflow: hidden;
+    .left-wrap {
+      height: 100%;
+    }
+    .img-wrap {
+      width: 100%;
+      padding-bottom: 50%;
+      height: 100%;
+      // display: block;
+      overflow: hidden;
+      .img {
+        transition: all 0.3s;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+  .right {
+    float: left;
+    width: 42%;
+    padding-left: 2em;
+    padding-right: 1.5em;
+    position: relative;
+    .right-wrap {
+      height: 100%;
+      .news-title {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+      }
+      .tag {
+        color: #fff;
+        background-color: rgba(2, 101, 214, 1);
+        margin: 32px 32px 32px 0;
+        display: inline-block;
+        font-size: 12px;
+        line-height: 2;
+        padding: 0 12px;
+      }
+      .title-content {
+        font-size: 20px;
+      }
+      .news-summary {
+        font-size: 16px;
+      }
+      .news-bottom {
+        color: #999;
+        width: 100%;
+        position: absolute;
+        bottom: 10px;
+      }
+    }
+  }
+  .swiper-pagination {
+    bottom: 25px;
+    .swiper-pagination-bullet {
+      transition: all 0.5s;
+      position: relative;
+      width: 4px;
+      height: 4px;
+      background: transparent;
+      opacity: 1;
+      background: rgba(255, 255, 255, 1);
+      overflow: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        left: 0;
+        height: 100%;
+        background: rgba(255, 255, 255, 1);
+        transition: all 0.2s;
+      }
+      &.swiper-pagination-bullet-active {
+        width: 24px;
+      }
+    }
+  }
+}
+
+.tab-active {
+  font-size: 16px;
+}
+.tab-name {
+  font-weight: 600;
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    top: -0.2em;
+    right: -0.5em;
+    border-radius: 1em;
+    background: linear-gradient(
+      223.38deg,
+      rgba(254, 249, 253, 0.895) 0%,
+      rgba(52, 118, 255, 0) 100%
+    );
+  }
+}

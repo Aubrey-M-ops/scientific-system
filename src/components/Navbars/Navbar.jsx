@@ -1,6 +1,7 @@
 import { NAV_MENU } from "../../constant/nav";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // reactstrap components
 import {
   Button,
@@ -24,6 +25,7 @@ export default function TopNavbar() {
   const [collapseOpen, setCollapseOpen] = React.useState(false);
   const [collapseOut, setCollapseOut] = React.useState("");
   const [color, setColor] = React.useState("navbar-transparent");
+  const history = useHistory();
 
   useEffect(() => {
     window.addEventListener("scroll", changeColor);
@@ -89,9 +91,15 @@ export default function TopNavbar() {
               </NavLink>
             </NavItem> */}
             <NavItem>
-              <NavLink href="/" rel="noopener noreferrer">
+              <NavLink href="/home" rel="noopener noreferrer">
                 {/* <i className="fab fa-instagram" /> */}
                 <p>首页</p>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/dynamic" rel="noopener noreferrer">
+                {/* <i className="fab fa-instagram" /> */}
+                <p>丝路科考动态</p>
               </NavLink>
             </NavItem>
 
@@ -102,9 +110,12 @@ export default function TopNavbar() {
                     caret
                     color="default"
                     data-toggle="dropdown"
-                    href="#pablo"
+                    href={menuItem.url}
                     nav
-                    onClick={(e) => e.preventDefault()}
+                    onClick={(e) => {
+                      history.push("/dynamic");
+                      e.preventDefault();
+                    }}
                   >
                     <i className="fa fa-cogs d-lg-none d-xl-none" />
                     {menuItem.name}
@@ -113,7 +124,9 @@ export default function TopNavbar() {
                     <DropdownMenu className="dropdown-with-icons">
                       {menuItem.children.map((childItem) => {
                         return (
-                          <DropdownItem href={childItem.url}>
+                          <DropdownItem
+                            href={`${menuItem.url}${childItem.url}`}
+                          >
                             <i className="tim-icons icon-paper" />
                             {childItem.name}
                           </DropdownItem>

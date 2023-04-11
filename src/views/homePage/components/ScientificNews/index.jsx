@@ -55,21 +55,6 @@ const ScientificNews = () => {
                 cardFooter={card.footer}
               />
             ))}
-            {/* <Card className="card-register">
-              <CardHeader>
-                <CardImg
-                  alt="..."
-                  src={require("@/assetsimg/square-purple-1.png")}
-                />
-                <CardTitle tag="h4">More</CardTitle>
-              </CardHeader>
-              <CardBody></CardBody>
-              <CardFooter>
-                <Button className="btn-round" color="primary" size="lg">
-                  Get Started
-                </Button>
-              </CardFooter>
-            </Card> */}
           </div>
         </div>
       </Container>
