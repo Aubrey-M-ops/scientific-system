@@ -13,6 +13,11 @@ import "./assets/demo/demo.css";
 import HomePage from "./views/homePage";
 import ScienceMoment from "./views/scienceMoment";
 import TopNavbar from "./components/Navbars/Navbar";
+
+import wow from "wowjs";
+// import "animate.css";
+
+new wow.WOW().init();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(

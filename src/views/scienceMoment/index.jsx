@@ -9,9 +9,19 @@ import {
   Nav,
   Container,
 } from "reactstrap";
-import { useHistory } from "react-router-dom";
 import DYNAMIC_MENU from "../../constant/dynamic";
-import useSelection from "antd/es/table/hooks/useSelection";
+import MyCard from "../../components/MyCard";
+
+const previewCards = new Array(16).fill({
+  img: "http://silk-web.dms.heyfuture.com.cn//images/1/2023/02/07/c6b99f66-4137-4d59-b908-35d1f162382d_1.jpg",
+  title: "《第三极环境科学评估报告》全球发布",
+  footer: "2023-01-01",
+});
+const textList = new Array(16).fill({
+  url: "http://silk-web.dms.heyfuture.com.cn//images/1/2023/02/07/c6b99f66-4137-4d59-b908-35d1f162382d_1.jpg",
+  title: "1、《第三极环境科学评估报告》全球发布",
+});
+
 const ScienceMoment = () => {
   const [currentTab, setCurrentTab] = useState(1);
   return (
@@ -57,7 +67,7 @@ const ScienceMoment = () => {
         <Navbar
           className="bg-primary"
           expand="lg"
-          style={{ margin: "40px 0", borderRadius: "3px" }}
+          style={{ margin: "40px 0", borderRadius: "3px", zIndex: 1 }}
         >
           <Container>
             <Nav navbar>
@@ -82,7 +92,42 @@ const ScienceMoment = () => {
           </Container>
         </Navbar>
 
-        <div>display</div>
+        {currentTab !== 2 ? (
+          <div className="cards-display">
+            {previewCards?.map((card) => (
+              <MyCard
+                imgSrc={card.img}
+                cardTitle={card.title}
+                cardFooter={card.footer}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="text-list">
+            {textList.map((textItem, index) => {
+              return (
+                <div
+                  className="text-item wow fadeInLeft"
+                  data-wow-delay={`${0 + 100 * index}ms`}
+                  style={{
+                    visibility: "visible",
+                    animationDelay: `${0 + 100 * index}ms`,
+                  }}
+                >
+                  <div className="item-wrap">
+                    <a
+                      className="item-info"
+                      href="/dynamic/content/27/125"
+                      target=""
+                    >
+                      <div className="item-title">{textItem.title}</div>
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

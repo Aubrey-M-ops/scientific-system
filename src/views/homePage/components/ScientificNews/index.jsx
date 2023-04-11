@@ -47,7 +47,6 @@ const ScientificNews = () => {
             </div>
           </div>
           <div className={styles.rightCards}>
-            {console.log(123123, previewCards)}
             {previewCards?.map((card) => (
               <MyCard
                 imgSrc={card.img}

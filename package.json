@@ -97,6 +97,7 @@
   "devDependencies": {
     "@types/shelljs": "^0.8.11",
     "shelljs": "^0.8.5",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "wowjs": "^1.1.3"
   }
 }
