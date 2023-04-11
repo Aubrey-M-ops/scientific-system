@@ -102,41 +102,36 @@ export default function TopNavbar() {
                 <p>丝路科考动态</p>
               </NavLink>
             </NavItem>
-
-            {NAV_MENU.map((menuItem) => {
-              return (
-                <UncontrolledDropdown nav>
-                  <DropdownToggle
-                    caret
-                    color="default"
-                    data-toggle="dropdown"
-                    href={menuItem.url}
-                    nav
-                    onClick={(e) => {
-                      history.push("/dynamic");
-                      e.preventDefault();
-                    }}
-                  >
-                    <i className="fa fa-cogs d-lg-none d-xl-none" />
-                    {menuItem.name}
-                  </DropdownToggle>
-                  {menuItem.children && (
-                    <DropdownMenu className="dropdown-with-icons">
-                      {menuItem.children.map((childItem) => {
-                        return (
-                          <DropdownItem
-                            href={`${menuItem.url}${childItem.url}`}
-                          >
-                            <i className="tim-icons icon-paper" />
-                            {childItem.name}
-                          </DropdownItem>
-                        );
-                      })}
-                    </DropdownMenu>
-                  )}
-                </UncontrolledDropdown>
-              );
-            })}
+            <NavItem>
+              <NavLink href="/home" rel="noopener noreferrer">
+                {/* <i className="fab fa-instagram" /> */}
+                <p>丝路碳储量</p>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/home" rel="noopener noreferrer">
+                {/* <i className="fab fa-instagram" /> */}
+                <p>丝路碳交易</p>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/home" rel="noopener noreferrer">
+                {/* <i className="fab fa-instagram" /> */}
+                <p>科研成果</p>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/home" rel="noopener noreferrer">
+                {/* <i className="fab fa-instagram" /> */}
+                <p>科研团队与平台</p>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/aboutUs" rel="noopener noreferrer">
+                {/* <i className="fab fa-instagram" /> */}
+                <p>关于我们</p>
+              </NavLink>
+            </NavItem>
 
             {/* <NavItem>
               <Button

@@ -15,6 +15,7 @@ import ScienceMoment from "./views/scienceMoment";
 import TopNavbar from "./components/Navbars/Navbar";
 
 import wow from "wowjs";
+import AboutUs from "./views/aboutUs";
 // import "animate.css";
 
 new wow.WOW().init();
@@ -27,6 +28,7 @@ root.render(
       {/* <Route path="/components" render={(props) => <Index {...props} />} /> */}
       <Route path="/home" render={(props) => <HomePage {...props} />} />
       <Route path="/dynamic" render={(props) => <ScienceMoment {...props} />} />
+      <Route path="/aboutUs" render={(props) => <AboutUs {...props} />} />
       {/* <Route
         path="/landing-page"
         render={(props) => <LandingPage {...props} />}
