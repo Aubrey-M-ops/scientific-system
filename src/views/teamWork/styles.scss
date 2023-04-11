@@ -1,0 +1,50 @@
+.platform-list {
+  overflow: hidden;
+  .platform-item {
+    float: left;
+    width: 25%;
+    padding: 0 7.5px;
+    .platform-wrap {
+      display: block;
+      width: 100%;
+    }
+    .photo {
+      width: 100%;
+      position: relative;
+      padding-bottom: 85%;
+      margin-bottom: 16px;
+      overflow: hidden;
+      .img-cover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s;
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        z-index: 1;
+        height: 80px;
+
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+      .platform-name {
+        position: absolute;
+        color: #fff;
+        bottom: 0;
+        width: 100%;
+        padding: 10px;
+        z-index: 2;
+      }
+    }
+  }
+}

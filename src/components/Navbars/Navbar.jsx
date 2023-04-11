@@ -121,7 +121,7 @@ export default function TopNavbar() {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/home" rel="noopener noreferrer">
+              <NavLink href="/teamWork" rel="noopener noreferrer">
                 {/* <i className="fab fa-instagram" /> */}
                 <p>科研团队与平台</p>
               </NavLink>
