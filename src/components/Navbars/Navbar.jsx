@@ -115,7 +115,7 @@ export default function TopNavbar() {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/home" rel="noopener noreferrer">
+              <NavLink href="/scienceResult" rel="noopener noreferrer">
                 {/* <i className="fab fa-instagram" /> */}
                 <p>科研成果</p>
               </NavLink>

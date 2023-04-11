@@ -17,6 +17,7 @@ import TopNavbar from "./components/Navbars/Navbar";
 import wow from "wowjs";
 import AboutUs from "./views/aboutUs";
 import TeamWork from "./views/teamWork";
+import ScienceResult from "./views/scienceResult";
 // import "animate.css";
 
 new wow.WOW().init();
@@ -31,6 +32,7 @@ root.render(
       <Route path="/dynamic" render={(props) => <ScienceMoment {...props} />} />
       <Route path="/aboutUs" render={(props) => <AboutUs {...props} />} />
       <Route path="/teamWork" render={(props) => <TeamWork {...props} />} />
+      <Route path="/scienceResult" render={(props) => <ScienceResult {...props} />} />
       {/* <Route
         path="/landing-page"
         render={(props) => <LandingPage {...props} />}
