@@ -1,79 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.scss";
 import { DatePicker } from "antd";
 import { Input, Table, Button } from "reactstrap";
-export default function Knowledge() {
-  const columns = [
-    {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-      render: (text) => <a>{text}</a>,
-    },
-    {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
-    },
-    {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
-    },
-    // {
-    //   title: "Tags",
-    //   key: "tags",
-    //   dataIndex: "tags",
-    //   render: (_, { tags }) => (
-    //     <>
-    //       {tags.map((tag) => {
-    //         let color = tag.length > 5 ? "geekblue" : "green";
-    //         if (tag === "loser") {
-    //           color = "volcano";
-    //         }
-    //         return (
-    //           <Tag color={color} key={tag}>
-    //             {tag.toUpperCase()}
-    //           </Tag>
-    //         );
-    //       })}
-    //     </>
-    //   ),
-    // },
-    // {
-    //   title: "Action",
-    //   key: "action",
-    //   render: (_, record) => (
-    //     <Space size="middle">
-    //       <a>Invite {record.name}</a>
-    //       <a>Delete</a>
-    //     </Space>
-    //   ),
-    // },
-  ];
-  const data = [
-    {
-      key: "1",
-      name: "John Brown",
-      age: 32,
-      address: "New York No. 1 Lake Park",
-      tags: ["nice", "developer"],
-    },
-    {
-      key: "2",
-      name: "Jim Green",
-      age: 42,
-      address: "London No. 1 Lake Park",
-      tags: ["loser"],
-    },
-    {
-      key: "3",
-      name: "Joe Black",
-      age: 32,
-      address: "Sydney No. 1 Lake Park",
-      tags: ["cool", "teacher"],
-    },
-  ];
+export default function Knowledge(props) {
+  const [tableData, setTableData] = useState([]);
+  // const tableData = useMemo(() => {}, data);
+  useEffect(() => {
+    const { data } = props.data;
+    console.log(data, "data");
+    setTableData(props.data);
+  }, [props.data]);
+
   return (
     <div>
       <div className="list-top">
@@ -133,86 +70,34 @@ export default function Knowledge() {
           <thead>
             <tr>
               <th className="text-center">#</th>
-              <th>Name</th>
-              <th>Job Position</th>
-              <th className="text-center">Since</th>
-              <th className="text-right">Salary</th>
-              <th className="text-right">Actions</th>
+              <th>主题</th>
+              <th>发明人/著作权人</th>
+              <th className="text-left">类型</th>
+              <th className="text-left">年份</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="text-center">1</td>
-              <td>Andrew Mike</td>
-              <td>Develop</td>
-              <td className="text-center">2013</td>
-              <td className="text-right">€ 99,225</td>
-              <td className="text-right">
-                <Button className="btn-icon" color="info" size="sm">
-                  <i className="fa fa-user"></i>
-                </Button>
-                {` `}
-                <Button className="btn-icon" color="success" size="sm">
-                  <i className="fa fa-edit"></i>
-                </Button>
-                {` `}
-                <Button className="btn-icon" color="danger" size="sm">
-                  <i className="fa fa-times" />
-                </Button>
-              </td>
-            </tr>
-            <tr>
-              <td className="text-center">2</td>
-              <td>Manuel Rico</td>
-              <td>Manager</td>
-              <td className="text-center">2012</td>
-              <td className="text-right">€ 99,201</td>
-              <td className="text-right">
-                <Button className="btn-icon btn-round" color="info" size="sm">
-                  <i className="fa fa-user"></i>
-                </Button>
-                {` `}
-                <Button
-                  className="btn-icon btn-round"
-                  color="success"
-                  size="sm"
-                >
-                  <i className="fa fa-edit"></i>
-                </Button>
-                <Button className="btn-icon btn-round" color="danger" size="sm">
-                  <i className="fa fa-times" />
-                </Button>
-              </td>
-            </tr>
-            <tr>
-              <td className="text-center">3</td>
-              <td>Alex Mike</td>
-              <td>Designer</td>
-              <td className="text-center">2012</td>
-              <td className="text-right">€ 99,201</td>
-              <td className="text-right">
-                <Button className="btn-icon btn-simple" color="info" size="sm">
-                  <i className="fa fa-user"></i>
-                </Button>
-                {` `}
-                <Button
-                  className="btn-icon btn-simple"
-                  color="success"
-                  size="sm"
-                >
-                  <i className="fa fa-edit"></i>
-                </Button>
-                {` `}
-                <Button
-                  className="btn-icon btn-simple"
-                  color="danger"
-                  size="sm"
-                >
-                  <i className="fa fa-times" />
-                </Button>
-                {` `}
-              </td>
-            </tr>
+            {tableData.length &&
+              tableData.map((row, index) => {
+                console.log(row, "rr");
+                return (
+                  <tr>
+                    <td className="text-center">{index}</td>
+                    <td
+                      style={{
+                        maxWidth: 460,
+                        height: 40,
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      <a href="">{row.name || "--"}</a>
+                    </td>
+                    <td>{row.author || "--"}</td>
+                    <td className="text-left">{row.type || "--"}</td>
+                    <td className="text-left">{row.year || "--"}</td>
+                  </tr>
+                );
+              })}
           </tbody>
         </Table>
       </div>
