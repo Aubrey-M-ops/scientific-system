@@ -1,0 +1,45 @@
+.list-top {
+  width: 100%;
+  padding: 20px 40px;
+  .node-name {
+    position: relative;
+    padding-left: 1em;
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: #ba54f5;
+      width: 8px;
+      height: 100%;
+      left: 0;
+    }
+  }
+  .filter-wrap {
+    width: 100%;
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    > input::input-placeholder {
+      color: hsla(0, 0%, 100%, 0.8);
+    }
+    .left-filter {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 100%;
+      .ant-picker,
+      .ant-select-selector {
+        margin-left: 12px;
+        font-family: poppins, sans-serif;
+        color: hsla(0, 0%, 100%, 0.8);
+        border-color: #2b3553 !important;
+        background-color: transparent;
+        border-radius: 0.4285rem;
+        font-size: 0.75rem;
+        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+          background-color 0.3s ease-in-out;
+      }
+    }
+  }
+}
+.list-display {
+  padding: 20px 40px;
+}

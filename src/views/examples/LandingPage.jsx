@@ -55,17 +55,17 @@ export default function LandingPage() {
           <img
             alt="..."
             className="path"
-            src={require("@/assetsimg/blob.png")}
+            src={require("@/assets/img/blob.png")}
           />
           <img
             alt="..."
             className="path2"
-            src={require("@/assetsimg/path2.png")}
+            src={require("@/assets/img/path2.png")}
           />
           <img
             alt="..."
             className="shapes triangle"
-            src={require("@/assetsimg/triunghiuri.png")}
+            src={require("@/assets/img/triunghiuri.png")}
           />
           <img
             alt="..."
