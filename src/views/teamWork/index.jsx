@@ -281,6 +281,7 @@ export default function TeamWork() {
                                 <div class="platform-item">
                                   <a
                                     class="platform-wrap"
+                                    //FIXME: replace url
                                     href="/team/content/40/1"
                                     rel="noreferrer"
                                     target="_blank"
