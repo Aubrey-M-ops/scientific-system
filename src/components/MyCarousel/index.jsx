@@ -10,46 +10,36 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from "reactstrap";
+import { useMemo } from "react";
 
-const items = [
-  {
-    src: "https://picsum.photos/id/123/1200/400",
-    altText: "Slide 1",
-    caption: "Slide 1",
-    key: 1,
-  },
-  {
-    src: "https://picsum.photos/id/456/1200/400",
-    altText: "Slide 2",
-    caption: "Slide 2",
-    key: 2,
-  },
-  {
-    src: "https://picsum.photos/id/678/1200/400",
-    altText: "Slide 3",
-    caption: "Slide 3",
-    key: 3,
-  },
-];
-
-const imgInfo = [
-  {
-    title: "置顶新闻1",
-    info: "报告：我国城市建筑碳排放呈现自北向南、自东向西递减分布状态",
-  },
-  {
-    title: "置顶新闻2",
-    info: "报告：我国城市建筑碳排放呈现自北向南、自东向西递减分布状态,报告：我国城市建筑碳排放呈现自北向南、自东向西递减分布状态",
-  },
-  {
-    title: "置顶新闻3",
-    info: "报告：我国城市建筑碳排放呈现自北向南、自东向西递减分布状态,报告：我国城市建筑碳排放呈现自北向南、自东向西递减分布状态,报告：我国城市建筑碳排放呈现自北向南、自东向西递减分布状态",
-  },
-];
-
-function MyCarousel() {
+function MyCarousel(props) {
+  console.log(props.bannerData, 123);
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+
+  //图片描述
+  const imgInfo = useMemo(() => {
+    const data = props.bannerData.map((item) => {
+      return {
+        label: item.label,
+        title: item.title,
+      };
+    });
+    return data;
+  }, [props.bannerData]);
+
+  //轮播图
+  const items = useMemo(() => {
+    const data = props.bannerData.map((item, index) => {
+      return {
+        src: item.photo,
+        altText: item.label,
+        caption: item.label,
+        key: index + 1,
+      };
+    });
+    return data;
+  }, [props.bannerData]);
 
   const next = () => {
     if (animating) return;
@@ -89,9 +79,9 @@ function MyCarousel() {
       <Col className={styles.imgTextCol}>
         <div className={styles.infoRow}>
           <h2 className="text-white font-weight-light">
-            {imgInfo[activeIndex].title}
+            {imgInfo[activeIndex].label}
           </h2>
-          <p className="text-white mt-4">{imgInfo[activeIndex].info}</p>
+          <p className="text-white mt-4">{imgInfo[activeIndex].title}</p>
         </div>
         <Button color="warning" onClick={() => console.log("click")}>
           点击了解详情

@@ -4,13 +4,8 @@ import { Container, Button } from "reactstrap";
 import MyCard from "../../../../components/MyCard";
 import styles from "../../styles.module.scss";
 
-const previewCards = new Array(6).fill({
-  img: "http://silk-web.dms.heyfuture.com.cn//images/1/2023/02/07/c6b99f66-4137-4d59-b908-35d1f162382d_1.jpg",
-  title: "《第三极环境科学评估报告》全球发布",
-  footer: "2023-01-01",
-});
-
-const ScientificNews = () => {
+const ScientificNews = (props) => {
+  const data = props.data;
   return (
     <div className="section">
       <Container style={{ width: "70%" }}>
@@ -18,11 +13,12 @@ const ScientificNews = () => {
         <div className="squares square-2" />
         <div className={styles.sciInfo}>
           <div className={styles.leftInfo}>
-            <h2>“一带一路”创新发展重大咨询项目启动</h2>
+            <h2>{data[0].title}</h2>
             <h4 className="description" style={{ color: "#9A9A9A" }}>
-              3月19日，中国科学院“一带一路”创新发展重大咨询项目启动会在京举办。项目牵头人、中国科学院院士、“一带一路”国际科学组织联盟（ANSO）主席白春礼出...
+              {data[0].summary}
             </h4>
             <div className="btn-wrapper">
+              {/* TODO: replace url */}
               <Button
                 className="btn-round"
                 color="primary"
@@ -30,8 +26,9 @@ const ScientificNews = () => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                了解详情👉
+                了解详情
               </Button>
+              {/* TODO: replace url */}
               <Button
                 className="btn-simple btn-round"
                 color="primary"
@@ -42,16 +39,16 @@ const ScientificNews = () => {
                 //     setShowPreview(!showPreview);
                 //   }}
               >
-                查看更多
+                查看更多 👉
               </Button>
             </div>
           </div>
           <div className={styles.rightCards}>
-            {previewCards?.map((card) => (
+            {data.slice(1, 7)?.map((card) => (
               <MyCard
-                imgSrc={card.img}
+                imgSrc={card.photo}
                 cardTitle={card.title}
-                cardFooter={card.footer}
+                cardFooter={`${card.author}  ${card.publishDate}`}
               />
             ))}
           </div>
