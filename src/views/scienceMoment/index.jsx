@@ -1178,14 +1178,14 @@ const ScienceMoment = () => {
   const [data, setData] = useState([]);
   const [topData, setTopData] = useState([]);
   useEffect(() => {
-    // getModule().then((response) => {
-    //   const { topData, data } = response;
-    //   setTopData(topData.data);
-    //   setData(data);
-    // });
-    const { topData, data } = response;
-    setTopData(topData.data);
-    setData(data);
+    getModule().then((response) => {
+      const { topData, data } = response;
+      setTopData(topData.data);
+      setData(data);
+    });
+    // const { topData, data } = response;
+    // setTopData(topData.data);
+    // setData(data);
   }, []);
   return (
     data.length &&
@@ -1260,7 +1260,7 @@ const ScienceMoment = () => {
             <div className="cards-display">
               {data
                 .find((item, index) => index === currentTab)
-                .data.data.list?.map((card) => (
+                .data?.map((card) => (
                   <MyCard
                     imgSrc={card.photo}
                     cardTitle={card.title}
@@ -1272,7 +1272,7 @@ const ScienceMoment = () => {
             <div className="text-list">
               {data
                 .find((item, index) => index === currentTab)
-                .data.data.list.map((textItem, index) => {
+                .data?.map((textItem, index) => {
                   return (
                     <div
                       className="text-item wow fadeInLeft"

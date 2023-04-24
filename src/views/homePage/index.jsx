@@ -12,20 +12,18 @@ const HomePage = () => {
   const [bannerData, setBannerData] = useState([]);
   useEffect(() => {
     document.body.classList.toggle("index-page");
-      getModule().then((response) => {
-        const { bannerData, data } = response;
-        console.log(bannerData, data, 'bbbb');
-        setBannerData(bannerData.data);
-        setData(data);
-      });
+    getModule().then((response) => {
+      const { bannerData, data } = response;
+      console.log(bannerData, data, "bbbb");
+      setBannerData(bannerData.data);
+      setData(data);
+    });
 
     // Specify how to clean up after this effect:
     return function cleanup() {
       document.body.classList.toggle("index-page");
     };
   }, []);
-
-  console.log(data?.[0]?.data, 'alldata');
 
   return (
     bannerData.length &&
