@@ -18,6 +18,7 @@ import wow from "wowjs";
 import AboutUs from "./views/aboutUs";
 import TeamWork from "./views/teamWork";
 import ScienceResult from "./views/scienceResult";
+import Storage from "./views/storage";
 // import "animate.css";
 
 new wow.WOW().init();
@@ -32,19 +33,11 @@ root.render(
       <Route path="/dynamic" render={(props) => <ScienceMoment {...props} />} />
       <Route path="/aboutUs" render={(props) => <AboutUs {...props} />} />
       <Route path="/teamWork" render={(props) => <TeamWork {...props} />} />
-      <Route path="/scienceResult" render={(props) => <ScienceResult {...props} />} />
-      {/* <Route
-        path="/landing-page"
-        render={(props) => <LandingPage {...props} />}
-      />
       <Route
-        path="/register-page"
-        render={(props) => <RegisterPage {...props} />}
+        path="/scienceResult"
+        render={(props) => <ScienceResult {...props} />}
       />
-      <Route
-        path="/profile-page"
-        render={(props) => <ProfilePage {...props} />}
-      /> */}
+      <Route path="/storage" render={(props) => <Storage {...props} />} />
       <Redirect from="/" to="/home" />
     </Switch>
   </BrowserRouter>

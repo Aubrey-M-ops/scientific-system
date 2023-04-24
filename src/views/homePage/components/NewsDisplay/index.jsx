@@ -7,6 +7,7 @@ import styles from "../../styles.module.scss";
 
 const NewsDisplay = (props) => {
   const data = props.data;
+  console.log('data', data);
   const [showPreview, setShowPreview] = useState(true);
   return (
     <Container style={{ width: "70%" }}>

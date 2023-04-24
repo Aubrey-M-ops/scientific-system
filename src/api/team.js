@@ -1,7 +1,7 @@
 import request from "../util/request.js";
 export function getModule() {
   return request({
-    url: "/json/teamNode.html",
+    url: "/teamNode.html",
     method: "get",
   });
 }

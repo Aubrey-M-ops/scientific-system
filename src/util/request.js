@@ -1,8 +1,8 @@
 import axios from "axios";
 const service = axios.create({
-  baseURL: "http://silk-web.dms.heyfuture.com.cn/", // url = base url + request url
+  baseURL: "http://localhost:3001", // url = base url + request url
   timeout: 60000, // request timeout
-  withCredentials: true, // send cookies when cross-domain requests
+  // withCredentials: true, // send cookies when cross-domain requests
   crossDomain: true,
 });
 // request interceptor

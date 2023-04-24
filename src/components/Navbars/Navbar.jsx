@@ -103,15 +103,9 @@ export default function TopNavbar() {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/home" rel="noopener noreferrer">
+              <NavLink href="/storage" rel="noopener noreferrer">
                 {/* <i className="fab fa-instagram" /> */}
                 <p>丝路碳储量</p>
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/home" rel="noopener noreferrer">
-                {/* <i className="fab fa-instagram" /> */}
-                <p>丝路碳交易</p>
               </NavLink>
             </NavItem>
             <NavItem>

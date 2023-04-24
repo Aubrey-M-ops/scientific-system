@@ -1,7 +1,7 @@
 import request from "../util/request.js";
 export function getModule() {
   return request({
-    url: "/json/aboutNode.html",
+    url: "/aboutNode.html",
     method: "get",
   });
 }
