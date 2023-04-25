@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
-import { DatePicker } from "antd";
+import { DatePicker, Select } from "antd";
 import { Input, Table, Button } from "reactstrap";
 export default function Data(props) {
   const [tableData, setTableData] = useState([]);
@@ -22,44 +22,26 @@ export default function Data(props) {
             <DatePicker
               // onChange={onChange}
               picker="year"
+              placeholder="请选择年份"
             />
-            <Input
-              type="select"
-              name="select"
-              id="exampleSelect1"
-              style={{ width: 120 }}
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
-            <Input
-              type="select"
-              name="select"
-              id="exampleSelect2"
-              style={{ width: 120 }}
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
-            <Input
-              type="select"
-              name="select"
-              id="exampleSelect3"
-              style={{ width: 120 }}
-              placeholder="获奖"
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
+            <Select
+              placeholder="主题"
+              style={{
+                width: 320,
+              }}
+              // onChange={handleChange}
+              options={[
+                {
+                  value: "jack",
+                  label: "Jack",
+                },
+                {
+                  value: "disabled",
+                  label: "Disabled",
+                  disabled: true,
+                },
+              ]}
+            />
           </div>
           {/* 关键词搜索 */}
           <div></div>

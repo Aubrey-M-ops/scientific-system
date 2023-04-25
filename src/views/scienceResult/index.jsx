@@ -1,6 +1,6 @@
 import React, { memo, useState } from "react";
 import "./styles.scss";
-import RESULT_PART from "../../constant/result";
+import { RESULT_PART, RESULT_NODE_ID } from "../../constant/result";
 import { useEffect } from "react";
 import Award from "./components/Award";
 import Essay from "./components/Essay";
@@ -29,19 +29,32 @@ const ScienceResult = memo(() => {
     if (data.length) {
       switch (currentPart) {
         case RESULT_PART.ESSAY:
-          setCurrentPanel(<Essay data={data?.[0].data} />);
+          setCurrentPanel(
+            <Essay data={data?.[0].data} nodeId={RESULT_NODE_ID.ESSAY} />
+          );
           break;
         case RESULT_PART.KNOWLEDGE:
-          setCurrentPanel(<Knowledge data={data?.[1].data} />);
+          setCurrentPanel(
+            <Knowledge
+              data={data?.[1].data}
+              nodeId={RESULT_NODE_ID.KNOWLEDGE}
+            />
+          );
           break;
         case RESULT_PART.PROJECT:
-          setCurrentPanel(<Project data={data?.[2].data} />);
+          setCurrentPanel(
+            <Project data={data?.[2].data} nodeId={RESULT_NODE_ID.PROJECT} />
+          );
           break;
         case RESULT_PART.DATA:
-          setCurrentPanel(<Data data={data?.[3].data} />);
+          setCurrentPanel(
+            <Data data={data?.[3].data} nodeId={RESULT_NODE_ID.DATA} />
+          );
           break;
         case RESULT_PART.AWARD:
-          setCurrentPanel(<Award data={data?.[4].data} />);
+          setCurrentPanel(
+            <Award data={data?.[4].data} nodeId={RESULT_NODE_ID.AWARD} />
+          );
           break;
         default:
           break;

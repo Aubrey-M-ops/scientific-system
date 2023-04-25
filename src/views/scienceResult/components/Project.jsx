@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
-import { DatePicker } from "antd";
+import { DatePicker, Select } from "antd";
 import { Input, Table, Button } from "reactstrap";
 export default function Knowledge(props) {
   const [tableData, setTableData] = useState([]);
@@ -20,46 +20,46 @@ export default function Knowledge(props) {
         <div className="filter-wrap">
           <div className="left-filter">
             <DatePicker
+              placeholder="请选择年份"
               // onChange={onChange}
               picker="year"
             />
-            <Input
-              type="select"
-              name="select"
-              id="exampleSelect1"
-              style={{ width: 120 }}
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
-            <Input
-              type="select"
-              name="select"
-              id="exampleSelect2"
-              style={{ width: 120 }}
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
-            <Input
-              type="select"
-              name="select"
-              id="exampleSelect3"
-              style={{ width: 120 }}
-              placeholder="获奖"
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
+            <Select
+              placeholder="类别"
+              style={{
+                width: 120,
+              }}
+              // onChange={handleChange}
+              options={[
+                {
+                  value: "jack",
+                  label: "Jack",
+                },
+                {
+                  value: "disabled",
+                  label: "Disabled",
+                  disabled: true,
+                },
+              ]}
+            />
+            <Select
+              placeholder="主题"
+              style={{
+                width: 240,
+              }}
+              // onChange={handleChange}
+              options={[
+                {
+                  value: "jack",
+                  label: "Jack",
+                },
+                {
+                  value: "disabled",
+                  label: "Disabled",
+                  disabled: true,
+                },
+              ]}
+            />
           </div>
           {/* 关键词搜索 */}
           <div></div>
@@ -95,9 +95,9 @@ export default function Knowledge(props) {
                     <td>{row.author || "--"}</td>
                     <td>{row.people || "--"}</td>
                     <td className="text-left">{row.type || "--"}</td>
-                    <td className="text-left">{`${
-                      row.executionStart || "--"
-                    }-${row.executionEnd || "--"}`}</td>
+                    <td className="text-left">{`${row.executionStart || "--"}-${
+                      row.executionEnd || "--"
+                    }`}</td>
                   </tr>
                 );
               })}

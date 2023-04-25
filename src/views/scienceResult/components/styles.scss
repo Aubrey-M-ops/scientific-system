@@ -25,18 +25,18 @@
       display: flex;
       flex-wrap: wrap;
       max-width: 100%;
-      .ant-picker,
-      .ant-select-selector {
-        margin-left: 12px;
-        font-family: poppins, sans-serif;
-        color: hsla(0, 0%, 100%, 0.8);
-        border-color: #2b3553 !important;
-        background-color: transparent;
-        border-radius: 0.4285rem;
-        font-size: 0.75rem;
-        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
-          background-color 0.3s ease-in-out;
-      }
+      // .ant-picker,
+      // .ant-select-selector {
+      //   margin-left: 12px;
+      //   font-family: poppins, sans-serif;
+      //   color: hsla(0, 0%, 100%, 0.8);
+      //   border-color: #2b3553 !important;
+      //   background-color: transparent;
+      //   border-radius: 0.4285rem;
+      //   font-size: 0.75rem;
+      //   transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+      //     background-color 0.3s ease-in-out;
+      // }
     }
   }
 }

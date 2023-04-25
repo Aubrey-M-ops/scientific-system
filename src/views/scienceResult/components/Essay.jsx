@@ -1,23 +1,102 @@
 import React, { useState, useEffect } from "react";
 import "./styles.scss";
-import { DatePicker } from "antd";
+import { DatePicker, Select } from "antd";
 import { Input, Table, Button } from "reactstrap";
+import { getSelectList } from "../../../api/achievement";
 
 export default function Essay(props) {
-  console.log(props);
-  // const { data } = props.data;
-  const [year, setYear] = useState();
-  const [type, setType] = useState();
-  const [level, setLevel] = useState();
-  const [award, setAward] = useState();
+  const nodeId = props.nodeId;
+
+  const [year, setYear] = useState("");
+  const [author, setAuthor] = useState(undefined);
+  const [topic, setTopic] = useState(undefined);
+
+  const [mag, setMag] = useState(undefined);
+  const [keywords, setKeywords] = useState(undefined);
+
+  const [authorOptions, setAuthorOptions] = useState([]);
+  const [topicOptions, setTopicOptions] = useState([]);
+  const [magOptions, setMagOptions] = useState([]);
   const [tableData, setTableData] = useState([]);
-  // const tableData = useMemo(() => {}, data);
+
   useEffect(() => {
     const { data } = props.data;
     console.log(data, "data");
     setTableData(props.data);
+    getOptions();
   }, [props.data]);
 
+  const getAuthorOptions = () => {
+    getSelectList(nodeId, "author").then((response) => {
+      // 获取作者下拉列表
+      let options = [];
+      const { code, data } = response;
+      if (code === 200) {
+        data.map((item) => {
+          let authorArr = [];
+          if (item.indexOf(" ") > -1) {
+            authorArr = item.split(" ");
+          } else if (item.indexOf("；") > -1) {
+            authorArr = item.split("；");
+          }
+          authorArr.map((author) => {
+            if (options.indexOf(author) === -1 && author) {
+              options.push(author);
+            }
+            return author;
+          });
+          return item;
+        });
+      }
+      authorOptions = options.map((item) => {
+        return { label: item, value: item };
+      });
+      setAuthorOptions(authorOptions);
+    });
+  };
+  const getTopicOptions = () => {
+    getSelectList(nodeId, "name").then((response) => {
+      // 获取主题下拉列表
+      let options = [];
+      const { code, data } = response;
+      if (code === 200) {
+        data.map((item) => {
+          if (options.indexOf(item) === -1) {
+            options.push(item);
+          }
+          return item;
+        });
+      }
+      topicOptions = options.map((item) => {
+        return { label: item, value: item };
+      });
+      setTopicOptions(topicOptions);
+    });
+  };
+  const getMagOptions = () => {
+    getSelectList(nodeId, "mag").then((response) => {
+      // 获取期刊下拉列表
+      let options = [];
+      const { code, data } = response;
+      if (code === 200) {
+        data.map((item) => {
+          if (options.indexOf(item) === -1) {
+            options.push(item);
+          }
+          return item;
+        });
+      }
+      magOptions = options.map((item) => {
+        return { label: item, value: item };
+      });
+      setMagOptions(magOptions);
+    });
+  };
+  const getOptions = () => {
+    getAuthorOptions(); // 获取作者下拉列表
+    getTopicOptions(); // 获取主题下拉列表
+    getMagOptions(); // 获取期刊下拉列表
+  };
   return (
     <div>
       <div className="list-top">
@@ -27,46 +106,64 @@ export default function Essay(props) {
         <div className="filter-wrap">
           <div className="left-filter">
             <DatePicker
+              placeholder="请选择年份"
               // onChange={onChange}
               picker="year"
             />
-            <Input
-              type="select"
-              name="select"
-              id="exampleSelect1"
-              style={{ width: 120 }}
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
-            <Input
-              type="select"
-              name="select"
-              id="exampleSelect2"
-              style={{ width: 120 }}
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
-            <Input
-              type="select"
-              name="select"
-              id="exampleSelect3"
-              style={{ width: 120 }}
-              placeholder="获奖"
-            >
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
+            <Select
+              placeholder="作者"
+              style={{
+                width: 120,
+              }}
+              // onChange={handleChange}
+              options={[
+                {
+                  value: "jack",
+                  label: "Jack",
+                },
+                {
+                  value: "disabled",
+                  label: "Disabled",
+                  disabled: true,
+                },
+              ]}
+            />
+            <Select
+              placeholder="主题"
+              style={{
+                width: 240,
+              }}
+              // onChange={handleChange}
+              options={[
+                {
+                  value: "jack",
+                  label: "Jack",
+                },
+                {
+                  value: "disabled",
+                  label: "Disabled",
+                  disabled: true,
+                },
+              ]}
+            />
+            <Select
+              placeholder="期刊"
+              style={{
+                width: 120,
+              }}
+              // onChange={handleChange}
+              options={[
+                {
+                  value: "jack",
+                  label: "Jack",
+                },
+                {
+                  value: "disabled",
+                  label: "Disabled",
+                  disabled: true,
+                },
+              ]}
+            />
           </div>
           {/* 关键词搜索 */}
           <div></div>
