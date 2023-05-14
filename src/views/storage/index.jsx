@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useParams } from "react-router-dom";
 import * as echarts from 'echarts';
 import { soilData } from "./did/soilData";
-import { Container } from "react-bootstrap";
+import { Container } from "reactstrap";
 import { Select, Slider, DatePicker, Spin, Input, message, Tabs, Radio, Button } from 'antd';
-import { getWorldGeo, getChinaGeo, getSilkRoad } from '@/api/mapGeo'
+import { getWorldGeo, getChinaGeo, getSilkRoad } from '../../api/mapGeo'
 import { deepClone } from '../../util'
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
@@ -83,7 +83,7 @@ const Storage=() => {
   
     const countryList=[]
     const [messageApi, contextHolder] = message.useMessage();
-    const dispatch=useDispatch()
+    // const dispatch=useDispatch()
     const chartmap=useRef(null)
     const lineChart = useRef(null)
     let [nameMap, setNameMap]=useState({})
@@ -568,8 +568,11 @@ const Storage=() => {
       // 获取所有总碳储量
       // soilData.getCertain_RegionLevel_Time_SumSoc({Country_and_Region: null},2019).then(response => {
       //   console.log(response)
-      // })
-      soilData.getAllSumSoc().then(response => {
+      // }),
+      soilData.getAllSumSoc()
+      .then(response => {
+      console.log(response, 'soil');
+        
         allSumSoc = response
         response.map(item => {
           let year_start = parseInt(item.year_start)
@@ -588,6 +591,9 @@ const Storage=() => {
         initTimer(minYear,maxYear)
         setWorldMap()
       })
+//       .catch((err)=>{
+// console.log(err, 'err');
+//       })
     }
     const getVegetationData = () => {
       // 获取植被碳库数据

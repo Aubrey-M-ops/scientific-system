@@ -34,6 +34,7 @@
   ],
   "dependencies": {
     "@babel/preset-typescript": "^7.21.0",
+    "@dfinity/principal": "^0.11.3",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "13.3.0",
     "@testing-library/user-event": "14.4.1",
@@ -97,6 +98,9 @@
     ]
   },
   "devDependencies": {
+    "@dfinity/agent": "0.11.3",
+    "@dfinity/auth-client": "^0.11.3",
+    "@dfinity/identity": "^0.11.3",
     "@types/shelljs": "^0.8.11",
     "shelljs": "^0.8.5",
     "ts-node": "^10.9.1",
