@@ -18,6 +18,9 @@ import wow from "wowjs";
 import AboutUs from "./views/aboutUs";
 import TeamWork from "./views/teamWork";
 import ScienceResult from "./views/scienceResult";
+import LoginPage from "./views/login";
+import RegisterPage from "./views/register";
+import ArticleManage from "./views/articleManage";
 import Storage from "./views/storage";
 // import "animate.css";
 
@@ -33,6 +36,9 @@ root.render(
       <Route path="/dynamic" render={(props) => <ScienceMoment {...props} />} />
       <Route path="/aboutUs" render={(props) => <AboutUs {...props} />} />
       <Route path="/teamWork" render={(props) => <TeamWork {...props} />} />
+      <Route path="/login" render={(props) => <LoginPage {...props} />} />
+      <Route path="/register" render={(props) => <RegisterPage {...props} />} />
+      <Route path="/articleManage" render={(props) => <ArticleManage {...props} />} />
       <Route
         path="/scienceResult"
         render={(props) => <ScienceResult {...props} />}
